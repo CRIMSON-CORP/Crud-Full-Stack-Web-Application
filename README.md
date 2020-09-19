@@ -1,6 +1,6 @@
 # Crud Web Application
 
-This is Just a Basic Web Application That performs operations such as Fetching, Dtoring and Editing data from a Data base
+This is Just a Basic Web Application That performs operations such as Fetching, Storing and Editing data from a Data base
 
 ## Contributing
 
