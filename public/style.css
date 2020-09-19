@@ -1,0 +1,212 @@
+*,
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: nunito;
+    font-weight: bold;
+    color: #fff;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(#cc2b5e, #753a88) no-repeat;
+    padding: 150px 0;
+}
+
+.wrapper {
+    margin: auto;
+    max-width: 80vw;
+    width: 60vw;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    transition: 1s all ease;
+    -webkit-transition: 1s all ease;
+    -moz-transition: 1s all ease;
+    -ms-transition: 1s all ease;
+    -o-transition: 1s all ease;
+}
+
+.input {
+    margin: auto;
+    margin: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    font-weight: bold;
+    padding: 10px 14px;
+    background: #753a88;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.3s all ease;
+    -webkit-transition: 0.3s all ease;
+    -moz-transition: 0.3s all ease;
+    -ms-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    color: inherit;
+    font-family: inherit;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    background: #ccc;
+}
+
+table#data {
+    width: 90%;
+    margin: 50px auto;
+    border-spacing: 10px;
+}
+
+table,
+th,
+td {
+    border-collapse: collapse;
+    font-size: 16px;
+    padding: 15px 10px;
+}
+td {
+    text-align: center;
+}
+
+tr {
+    padding: 10px;
+}
+
+/* tr.header td {
+    border-spacing: 0px;
+    padding: 0;
+} */
+
+.action {
+    text-align: center;
+}
+.update {
+    margin: auto;
+    width: 300px;
+    text-align: center;
+    height: 250px;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+input[type="search"] {
+    padding: 5px;
+    font-size: 1rem;
+}
+
+input {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 10px;
+    margin: 0px 10px;
+    width: 200px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+input:focus,
+input:valid {
+    background: rgba(32, 0, 43, 0.65);
+    color: white;
+    caret-color: #cc2b5e;
+}
+
+label {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+thead {
+    background: #753a88;
+    color: white;
+}
+
+table {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+}
+
+tr:nth-child(even) {
+    background-color: #cc2b5e54;
+}
+tr:nth-child(odd) {
+    background-color: #743a8854;
+}
+
+tr {
+    animation: slide 0.5s ease;
+    -webkit-animation: slide 0.5s ease;
+}
+
+@keyframes slide {
+    from {
+        transform: translateY(-20px);
+        -webkit-transform: translateY(-20px);
+        -moz-transform: translateY(-20px);
+        -ms-transform: translateY(-20px);
+        -o-transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.box {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    place-items: center;
+    width: 100%;
+}

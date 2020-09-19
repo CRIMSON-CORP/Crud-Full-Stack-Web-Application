@@ -1,0 +1,16 @@
+{
+  "name": "sql-ajax-node",
+  "version": "1.0.0",
+  "description": "trainig on sql database ajax node",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "author": "Crimson",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.4"
+  }
+}
