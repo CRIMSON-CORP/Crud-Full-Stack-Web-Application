@@ -3,11 +3,13 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const conn = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: process.env.PASSOWORD,
-    database: process.env.DATABASE,
-    port: process.env.DB_PORT,
+    host: "eu-cdbr-west-03.cleardb.net",
+    port: 3306,
+    user: "bf49b062b62ffb",
+    password: "c295ab38",
+    database: "heroku_7b86f29a392f3d2",
+    database_url:
+        "mysql://bf49b062b62ffb:c295ab38@eu-cdbr-west-03.cleardb.net/heroku_7b86f29a392f3d2?reconnect=true",
 });
 
 conn.connect((err) => {
@@ -59,7 +61,7 @@ class dbservice {
     async deleteRow(id) {
         try {
             id = parseInt(id, 10);
-            const response = await new Promise((resolve, reject) => {
+            await new Promise((resolve, reject) => {
                 const query = "DELETE FROM data WHERE ID = ?";
                 conn.query(query, [id], (err, results) => {
                     if (err) throw err;
@@ -74,7 +76,7 @@ class dbservice {
         try {
             var date = new Date();
             id = parseInt(id, 10);
-            const response = await new Promise((resolve, reject) => {
+            await new Promise((resolve, reject) => {
                 const query = "UPDATE data set NAME = ?, AGE= ?, date = ? WHERE id = ?";
                 conn.query(query, [newName, newAge, date, id], (err, results) => {
                     if (err) throw err;
@@ -89,8 +91,8 @@ class dbservice {
     async searchRow(search_key) {
         try {
             const response = await new Promise((resolve, reject) => {
-                const query = "SELECT * FROM data WHERE NAME = ?";
-                conn.query(query, [search_key], (err, results) => {
+                const query = `SELECT * FROM data WHERE NAME LIKE '%${search_key}%'`;
+                conn.query(query, (err, results) => {
                     if (err) reject(err.message);
                     resolve(results);
                 });

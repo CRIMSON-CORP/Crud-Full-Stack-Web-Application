@@ -23,20 +23,11 @@ body {
 
 .wrapper {
     margin: auto;
-    max-width: 80vw;
-    width: 60vw;
+    width: clamp(320px, 80vw, 600px);
     padding: 20px;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
     transition: 1s all ease;
-    -webkit-transition: 1s all ease;
-    -moz-transition: 1s all ease;
-    -ms-transition: 1s all ease;
-    -o-transition: 1s all ease;
 }
 
 .input {
@@ -48,24 +39,20 @@ body {
 
 button {
     font-weight: bold;
-    padding: 10px 14px;
+    padding: 7px 14px;
     background: #753a88;
     cursor: pointer;
     border: none;
     outline: none;
     transition: 0.3s all ease;
-    -webkit-transition: 0.3s all ease;
-    -moz-transition: 0.3s all ease;
-    -ms-transition: 0.3s all ease;
-    -o-transition: 0.3s all ease;
     color: inherit;
     font-family: inherit;
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cancel {
+    display: none;
 }
 
 button:active {
@@ -92,11 +79,6 @@ td {
 tr {
     padding: 10px;
 }
-
-/* tr.header td {
-    border-spacing: 0px;
-    padding: 0;
-} */
 
 .action {
     text-align: center;

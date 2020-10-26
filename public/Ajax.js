@@ -22,7 +22,7 @@ function showUpdate(params) {
 }
 
 function delete_person(id) {
-    fetch("http://localhost:2000/delete/" + id, {
+    fetch("/delete/" + id, {
         method: "delete",
     })
         .then((response) => response.json())
@@ -33,7 +33,7 @@ function edit_person(id) {
     document.querySelector(".update-btn").addEventListener("click", () => {
         var update_input = document.querySelector(".update-input").value;
         var update_age = document.querySelector(".update-age").value;
-        fetch("http://localhost:2000/edit/" + id, {
+        fetch("/edit/" + id, {
             headers: {
                 "content-type": "application/json",
             },
@@ -51,19 +51,21 @@ function edit_person(id) {
 function search() {
     var search = document.querySelector("#search");
     const search_key = search.value;
-    var searchBtn = document.querySelector(".search-btn");
-    searchBtn.classList.toggle("cancel");
-    if (searchBtn.classList.contains("cancel")) {
-        searchBtn.innerHTML = "Cancel Search &#10006;";
-        return fetch("http://localhost:2000/search/" + search_key)
-            .then((response) => response.json())
-            .then((data) => loadList(data["data"]));
-    } else {
-        searchBtn.innerHTML = "Search";
-        search.value = null;
-        return onload();
-    }
+    search_key.trim() == ""
+        ? onload()
+        : fetch("/search/" + search_key)
+              .then((response) => response.json())
+              .then((data) => loadList(data["data"]));
+    var cancel = document.querySelector(".cancel");
+    if (search_key) cancel.style.display = "inline";
+    else cancel.style.display = "none";
 }
+
+document.querySelector(".cancel").addEventListener("click", () => {
+    document.querySelector(".cancel").style.display = "none";
+    document.querySelector("#search").value = null;
+    onload();
+});
 
 function insert() {
     var name = document.getElementById("name").value;
@@ -73,8 +75,10 @@ function insert() {
         return alert("please Fill input");
     }
 
-    const name_input = (document.getElementById("name").value = "");
-    const age_input = (document.getElementById("age").value = "");
+    var inputs = document.querySelectorAll(".input input");
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[0].value = "";
+    }
 
     fetch("http://localhost:2000/insert", {
         headers: {

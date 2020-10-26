@@ -25,6 +25,7 @@
                     <label for="age"
                         ><h3>Age:</h3>
                         <input
+                            placeholder="Your Age!"
                             type="number"
                             name="age"
                             class="input-box"
@@ -38,34 +39,30 @@
                 <div class="searchBar">
                     <label for="search" class="search"
                         >Search:
-                        <input type="text" name="search" id="search" required="required" node />
-                        <button onclick="search()" class="search-btn">Search</button></label
-                    >
+                        <input
+                            type="search"
+                            name="search"
+                            id="search"
+                            required="required"
+                            onkeyup="search()"
+                        />
+                        <button class="cancel">&times; Clear Search</button>
+                    </label>
                 </div>
 
                 <table id="data">
                     <thead class="header">
-                        <th>
-                            ID
-                        </th>
-                        <th>
-                            NAME
-                        </th>
-                        <th>
-                            AGE
-                        </th>
-                        <th>
-                            DATE
-                        </th>
-                        <th class="action" colspan="3">
-                            ACTION
-                        </th>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>AGE</th>
+                        <th>DATE</th>
+                        <th class="action" colspan="3">ACTION</th>
                     </thead>
                     <tbody></tbody>
                 </table>
 
                 <div hidden class="update">
-                    <h2 style="margin: 0px auto;">Update</h2>
+                    <h2 style="margin: 0px auto">Update</h2>
                     <div class="name box">
                         <label for="search">Name</label>
                         <input type="text" name="Update-input" class="update-input" />
@@ -74,7 +71,7 @@
                         <label for="search">Age</label>
                         <input type="number" name="Update-Age" class="update-age" />
                     </div>
-                    <button style="width: 100px; margin: 0 auto;" class="update-btn">Update</button>
+                    <button style="width: 100px; margin: 0 auto" class="update-btn">Update</button>
                 </div>
             </div>
         </div>

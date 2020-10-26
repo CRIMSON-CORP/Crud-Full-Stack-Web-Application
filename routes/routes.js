@@ -78,11 +78,9 @@ route.get("/search/:search_key", (req, res) => {
     result;
     result
         .then((data) =>
-            res
-                .json({
-                    data: data,
-                })
-                .then((data) => console.log(data))
+            res.json({
+                data: data,
+            })
         )
         .catch((err) => console.log(err));
 });
