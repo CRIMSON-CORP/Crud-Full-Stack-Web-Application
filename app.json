@@ -1,0 +1,5 @@
+{
+    "name": "Crud App",
+    "description": "Just a node js app, using express and sql",
+    "keywords": ["node", "express", "sql"]
+}
