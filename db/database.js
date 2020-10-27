@@ -38,6 +38,12 @@ var conn = connectDb();
 
 let instance = null;
 
+const query = "SELECT * FROM data";
+conn.query(query, (err, results) => {
+    if (err) throw err;
+    console.log(results);
+});
+
 class dbservice {
     static getDbServiceInstance() {
         return instance ? instance : new dbservice();
