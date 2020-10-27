@@ -2,20 +2,40 @@ const mysql = require("mysql");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const conn = mysql.createConnection({
-    host: "eu-cdbr-west-03.cleardb.net",
-    port: 3306,
-    user: "bf49b062b62ffb",
-    password: "c295ab38",
-    database: "heroku_7b86f29a392f3d2",
-    database_url:
-        "mysql://bf49b062b62ffb:c295ab38@eu-cdbr-west-03.cleardb.net/heroku_7b86f29a392f3d2?reconnect=true",
-});
+function connectDb() {
+    const conn = mysql.createConnection({
+        host: "eu-cdbr-west-03.cleardb.net",
+        port: 3306,
+        user: "bf49b062b62ffb",
+        password: "c295ab38",
+        database: "heroku_7b86f29a392f3d2",
+        database_url:
+            "mysql://bf49b062b62ffb:c295ab38@eu-cdbr-west-03.cleardb.net/heroku_7b86f29a392f3d2?reconnect=true",
+    });
 
-conn.connect((err) => {
-    if (err) throw err.message;
-    console.log(conn.state + " to database ");
-});
+    conn.connect(function (err) {
+        if (err) {
+            console.log("error when connecting to db:", err);
+            setTimeout(connectDb, 2000);
+        } else {
+            console.log("connected to DB");
+        }
+    });
+
+    conn.on("error", function (err) {
+        console.log("db error", err);
+        if (err.code === "PROTOCOL_CONNECTION_LOST") {
+            connectDb();
+        } else {
+            throw err;
+        }
+    });
+
+    return conn;
+}
+
+var conn = connectDb();
+
 let instance = null;
 
 class dbservice {
@@ -33,7 +53,7 @@ class dbservice {
             });
             return response;
         } catch (error) {
-            console.log(err);
+            console.log(error);
         }
     }
 
