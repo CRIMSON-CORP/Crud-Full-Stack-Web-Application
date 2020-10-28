@@ -1,5 +1,5 @@
 function onload() {
-    fetch("http://localhost:2000/test")
+    fetch("/test")
         .then((response) => response.json())
         .then((data) => loadList(data["data"]));
 }
@@ -80,7 +80,7 @@ function insert() {
         inputs[0].value = "";
     }
 
-    fetch("http://localhost:2000/insert", {
+    fetch("/insert", {
         headers: {
             "content-type": "application/json",
         },
