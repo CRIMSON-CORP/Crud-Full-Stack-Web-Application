@@ -4,6 +4,7 @@
     "keywords": ["node", "express", "sql"],
     "addons": {
         "plan": "ignite",
-        "as": "cleardb"
+        "as": "CLEARDB_DATABASE",
+        "price":"free"
     }
 }
